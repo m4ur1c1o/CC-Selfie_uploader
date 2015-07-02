@@ -5,11 +5,18 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # Que tipo de strorage usará este uploader
 
   def store_dir
-    # Como y donde guardar el archivo ...
+  	'public/img'
   end
 
   storage :file
   # Versiones del archivo ...
 
+  version :thumb do
+    process resize_to_fit: [200,200]
+  end
+
   #Que extensiones vas a aceptar
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
 end

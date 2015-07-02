@@ -9,11 +9,9 @@
 </form>
 
 <ul>
-	<% if @photos %>
   <% @photos.each do |photo| %>
     <div> 
       <img src="<%= photo.photo_url(:thumb) %>">
     </div>
-  <% end %>
   <% end %>
 </ul>
